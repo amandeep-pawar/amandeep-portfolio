@@ -1,0 +1,26 @@
+<section id="testimonials" class="section alt-bg">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Appreciations</span>
+      <h2 class="section-title">Appreciations from client and colleagues</h2>
+    </div>
+    <div class="slider-controls">
+      <button class="slider-btn" type="button" (click)="scroll('prev')" aria-label="Previous testimonial">←</button>
+      <button class="slider-btn" type="button" (click)="scroll('next')" aria-label="Next testimonial">→</button>
+    </div>
+
+    <div class="testimonials-slider" #slider aria-label="Testimonials carousel">
+      <div class="card t-card" *ngFor="let t of testimonials">
+        <div class="accent-line"></div>
+        <p class="quote">"{{ t.quote }}"</p>
+        <div class="t-person">
+          <div class="avatar">{{ t.initials }}</div>
+          <div>
+            <div class="t-name">{{ t.name }}</div>
+            <div class="t-role">{{ t.role }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

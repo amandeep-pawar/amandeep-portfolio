@@ -1,0 +1,20 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111827"/>
+      <stop offset="1" stop-color="#7C3AED"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" rx="40" fill="url(#bg2)"/>
+  <rect x="120" y="140" width="960" height="520" rx="28" fill="#0F172A" fill-opacity="0.35"/>
+  <rect x="180" y="200" width="260" height="150" rx="20" fill="#A78BFA" fill-opacity="0.7"/>
+  <rect x="480" y="200" width="260" height="150" rx="20" fill="#60A5FA" fill-opacity="0.7"/>
+  <rect x="780" y="200" width="220" height="150" rx="20" fill="#34D399" fill-opacity="0.75"/>
+  <rect x="180" y="400" width="820" height="180" rx="22" fill="#E2E8F0" fill-opacity="0.12"/>
+  <path d="M220 440H420" stroke="#A5B4FC" stroke-width="18" stroke-linecap="round"/>
+  <path d="M220 490H560" stroke="#C4B5FD" stroke-width="18" stroke-linecap="round"/>
+  <path d="M220 540H500" stroke="#93C5FD" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="918" cy="482" r="66" fill="#FDE68A"/>
+  <path d="M894 482L912 500L944 466" stroke="#0F172A" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="120" y="680" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="56" font-weight="700">Order &amp; Payment Lifecycle</text>
+</svg>

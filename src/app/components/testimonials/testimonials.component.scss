@@ -1,0 +1,129 @@
+.alt-bg {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.slider-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.slider-btn {
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.8);
+  color: #f8fafc;
+  cursor: pointer;
+  font-size: 1.15rem;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.slider-btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(99, 102, 241, 0.5);
+  background: rgba(30, 41, 59, 0.95);
+}
+
+.testimonials-slider {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(300px, 1fr);
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+}
+
+.testimonials-slider::-webkit-scrollbar {
+  height: 8px;
+}
+
+.testimonials-slider::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.5);
+  border-radius: 999px;
+}
+
+.t-card {
+  position: relative;
+  min-height: 290px;
+  padding: 26px 24px 22px;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.72), rgba(17, 24, 39, 0.9));
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  scroll-snap-align: start;
+}
+
+.t-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 44px rgba(15, 23, 42, 0.2);
+  border-color: rgba(99, 102, 241, 0.45);
+}
+
+.accent-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #8b5cf6, #22d3ee, #34d399);
+  border-radius: 999px;
+}
+
+.quote {
+  font-style: italic;
+  margin: 18px 0 20px;
+  line-height: 1.8;
+  color: #e2e8f0;
+  font-size: 0.97rem;
+}
+
+.t-person {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(148, 163, 184, 0.2);
+  margin-top: auto;
+}
+
+.avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+  box-shadow: 0 10px 22px rgba(139, 92, 246, 0.35);
+}
+
+.t-name {
+  font-weight: 700;
+  color: #f8fafc;
+  font-size: 0.94rem;
+}
+
+.t-role {
+  font-size: 0.8rem;
+  color: #cbd5e1;
+}
+
+@media (max-width: 880px) {
+  .testimonials-slider {
+    grid-auto-columns: minmax(260px, 82vw);
+  }
+
+  .slider-controls {
+    justify-content: center;
+  }
+}

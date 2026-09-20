@@ -1,0 +1,52 @@
+.alt-bg {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.platform-card {
+  display: block;
+  padding: 24px 18px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.platform-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+}
+
+.platform-icon {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+.platform-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.08rem;
+}
+
+.platform-card p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .platform-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .platform-grid {
+    grid-template-columns: 1fr;
+  }
+}

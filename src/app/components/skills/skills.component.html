@@ -1,0 +1,18 @@
+<section id="skills" class="section alt-bg">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Skills</span>
+      <h2 class="section-title">Capabilities & expertise</h2>
+      <p>My strengths across engineering, teamwork, and problem solving.</p>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-card" *ngFor="let group of groups">
+        <h3>{{ group.title }}</h3>
+        <div class="tag-cloud">
+          <span class="badge" *ngFor="let item of group.items">{{ item }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

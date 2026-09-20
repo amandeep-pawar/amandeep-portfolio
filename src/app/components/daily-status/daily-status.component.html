@@ -1,0 +1,39 @@
+<div class="status-card">
+  <div class="status-inline" *ngIf="!editing(); else editForm">
+    <div class="pulse-row">
+      <span class="pulse-dot" [class.busy]="status().availability !== 'Available'"></span>
+      <span class="availability">{{ status().availability }}</span>
+      <span class="divider">•</span>
+      <span class="working-on"><strong>Working on:</strong> {{ status().workingOn }}</span>
+      <span class="divider">•</span>
+      <span class="updated">Updated {{ statusService.timeAgo(status().updatedAt) }}</span>
+    </div>
+
+    <button class="unlock-icon" type="button" (click)="toggleLock()" aria-label="Unlock status editor" title="Unlock status">
+      🔒
+    </button>
+  </div>
+
+  <div class="unlock-panel" *ngIf="showPasswordInput() && !canEditStatus()">
+    <div class="unlock-row">
+      <input type="password" [(ngModel)]="password" placeholder="Enter password" />
+      <button class="small-btn" type="button" (click)="unlockStatus()">Unlock</button>
+    </div>
+  </div>
+
+  <ng-template #editForm>
+    <div class="edit-inline">
+      <select [(ngModel)]="form.availability">
+        <option>Available</option>
+        <option>Busy</option>
+        <option>In a meeting</option>
+        <option>On leave</option>
+      </select>
+
+      <input type="text" [(ngModel)]="form.workingOn" placeholder="Working on" />
+
+      <button class="small-btn" type="button" (click)="save()">Save</button>
+      <button class="small-btn secondary" type="button" (click)="editing.set(false)">Close</button>
+    </div>
+  </ng-template>
+</div>

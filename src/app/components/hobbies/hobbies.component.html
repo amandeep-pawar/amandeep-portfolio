@@ -1,0 +1,17 @@
+<section id="hobbies" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Hobbies</span>
+      <h2 class="section-title">Things I enjoy beyond work</h2>
+      <p>Life outside code keeps me creative, balanced, and motivated.</p>
+    </div>
+
+    <div class="hobbies-grid">
+      <div class="card hobby-card" *ngFor="let hobby of hobbies">
+        <div class="hobby-icon">{{ hobby.icon }}</div>
+        <h3>{{ hobby.title }}</h3>
+        <p>{{ hobby.detail }}</p>
+      </div>
+    </div>
+  </div>
+</section>

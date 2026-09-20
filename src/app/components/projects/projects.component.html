@@ -1,0 +1,93 @@
+<section id="projects" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Portfolio</span>
+      <h2 class="section-title">Featured Projects</h2>
+      <p>A selection of things I've designed, built, and shipped.</p>
+    </div>
+
+    <div class="filters">
+      <button *ngFor="let c of categories"
+              class="btn"
+              [class.btn-primary]="activeCategory() === c"
+              [class.btn-outline]="activeCategory() !== c"
+              (click)="activeCategory.set(c)">
+        {{ c }}
+      </button>
+    </div>
+
+    <div class="grid projects-grid">
+      <div class="card project-card" *ngFor="let p of filteredProjects()"
+           (click)="openProject(p)"
+           (keydown.enter)="openProject(p)"
+           (keydown.space)="openProject(p)"
+           tabindex="0"
+           role="button"
+           [attr.aria-label]="'Open project details for ' + p.title">
+        <div class="thumb" [style.background-image]="'linear-gradient(135deg, rgba(15, 23, 42, 0.38), rgba(99, 102, 241, 0.22)), url(' + p.image + ')'">
+          <div class="thumb-overlay">
+            <span class="project-category">{{ p.category }}</span>
+            <span class="project-emoji">{{ p.emoji }}</span>
+          </div>
+        </div>
+        <div class="project-body">
+          <h4>{{ p.title }}</h4>
+          <p>{{ p.desc }}</p>
+          <div class="tag-row">
+            <span class="badge" *ngFor="let t of p.tags">{{ t }}</span>
+          </div>
+          <span class="link-out">View Case Study →</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-modal-backdrop" *ngIf="selectedProject()" (click)="closeProject()">
+    <div class="project-modal card" (click)="$event.stopPropagation()">
+      <button class="modal-close" type="button" (click)="closeProject()" aria-label="Close project modal">×</button>
+
+      <div class="modal-media" [style.background-image]="'linear-gradient(135deg, rgba(15, 23, 42, 0.2), rgba(20, 30, 48, 0.58)), url(' + selectedProject()?.image + ')'">
+        <div class="modal-media-badge">{{ selectedProject()?.category }}</div>
+      </div>
+
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="eyebrow">Case Study</span>
+          <h3>{{ selectedProject()?.title }}</h3>
+        </div>
+
+        <p class="modal-summary">{{ selectedProject()?.desc }}</p>
+
+        <div class="tag-row modal-tags">
+          <span class="badge" *ngFor="let t of selectedProject()?.tags">{{ t }}</span>
+        </div>
+
+        <div class="modal-grid">
+          <div class="modal-panel">
+            <span>Challenge</span>
+            <p>{{ selectedProject()?.challenge }}</p>
+          </div>
+          <div class="modal-panel">
+            <span>Solution</span>
+            <p>{{ selectedProject()?.solution }}</p>
+          </div>
+          <div class="modal-panel">
+            <span>Impact</span>
+            <p>{{ selectedProject()?.impact }}</p>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <a *ngIf="selectedProject()?.link !== '#'; else closedLink"
+             [href]="selectedProject()?.link"
+             target="_blank"
+             class="btn btn-primary">View Live Project</a>
+          <ng-template #closedLink>
+            <button class="btn btn-primary" type="button" disabled>Project Details</button>
+          </ng-template>
+          <button class="btn btn-outline" type="button" (click)="closeProject()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

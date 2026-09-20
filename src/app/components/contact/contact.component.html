@@ -1,0 +1,22 @@
+<section id="contact" class="section">
+  <div class="container contact-grid">
+    <div>
+      <span class="section-tag">Contact</span>
+      <h2 class="section-title">Let's build something great</h2>
+      <p>Have a project in mind or just want to say hi? My inbox is always open.</p>
+      <div class="contact-details">
+        <div>📧 amandeep.pawarsingh&#64;gmail.com</div>
+        <div>📍 Remote / Open to relocate</div>
+        <div>📱 +91 7409188443</div>
+      </div>
+    </div>
+
+    <form class="card contact-form" (submit)="submit($event)" novalidate>
+      <input type="text" placeholder="Your name" [(ngModel)]="name" name="name" required />
+      <input type="email" placeholder="Your email" [(ngModel)]="email" name="email" required />
+      <textarea rows="4" placeholder="Your message" [(ngModel)]="message" name="message" required></textarea>
+      <button type="submit" class="btn btn-primary">Send Message</button>
+      <p class="sent-note" *ngIf="sent()">✅ Your message has been prepared successfully. Please send it from your email app.</p>
+    </form>
+  </div>
+</section>

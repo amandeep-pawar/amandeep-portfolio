@@ -1,0 +1,17 @@
+<section id="platforms" class="section alt-bg">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Coding Platforms</span>
+      <h2 class="section-title">Where I build and sharpen my skills</h2>
+      <p>I enjoy solving real-world problems and continuously sharpening my engineering skills.</p>
+    </div>
+
+    <div class="platform-grid">
+      <a class="card platform-card" *ngFor="let platform of platforms" [href]="platform.url" target="_blank" rel="noreferrer">
+        <div class="platform-icon">{{ platform.icon }}</div>
+        <h3>{{ platform.name }}</h3>
+        <p>{{ platform.description }}</p>
+      </a>
+    </div>
+  </div>
+</section>

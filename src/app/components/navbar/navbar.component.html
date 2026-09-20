@@ -1,0 +1,28 @@
+<header class="navbar">
+  <app-daily-status></app-daily-status>
+
+  <div class="container nav-inner">
+    <a href="#home" class="logo">SDE<span>.</span></a>
+
+    <nav class="links" [class.open]="menuOpen()">
+      <a href="#home" (click)="close()">Home</a>
+      <a href="#about" (click)="close()">About</a>
+      <a href="#resume" (click)="close()">Resume</a>
+      <a href="#skills" (click)="close()">Skills</a>
+      <a href="#projects" (click)="close()">Projects</a>
+      <a href="#achievements" (click)="close()">Achievements</a>
+      <a href="#status" (click)="close()">Status</a>
+      <a href="#contact" (click)="close()">Contact</a>
+    </nav>
+
+    <div class="actions">
+      <button class="icon-btn" (click)="theme.toggle()" title="Toggle theme">
+        {{ theme.theme() === 'dark' ? '🌙' : '☀️' }}
+      </button>
+      <button class="icon-btn" (click)="share()" title="Share this portfolio">🔗</button>
+      <button class="hamburger" (click)="menuOpen.set(!menuOpen())" [class.active]="menuOpen()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>

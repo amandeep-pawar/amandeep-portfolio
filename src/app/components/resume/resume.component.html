@@ -1,0 +1,59 @@
+<section id="resume" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Resume</span>
+      <h2 class="section-title">Experience &amp; Education</h2>
+      <p>A quick look at where I've worked and studied.</p>
+    </div>
+
+    <div class="resume-grid">
+      <div>
+        <h3 class="col-title">💼 Experience</h3>
+        <div class="timeline">
+          <div class="timeline-item" *ngFor="let item of experience">
+            <div class="dot"></div>
+            <div class="card content">
+              <span class="period">{{ item.period }}</span>
+              <h4>{{ item.title }}</h4>
+              <div class="org-row">
+                <p class="org">{{ item.org }}</p>
+                <span class="verified-badge" *ngIf="item.badge">{{ item.badge }}</span>
+              </div>
+              <div class="meta-row" *ngIf="item.location || item.role || item.domain">
+                <span class="meta-tag" *ngIf="item.location">📍 {{ item.location }}</span>
+                <span class="meta-tag" *ngIf="item.role">{{ item.role }}</span>
+                <span class="meta-tag" *ngIf="item.domain">{{ item.domain }}</span>
+              </div>
+              <div class="work-block" *ngIf="item.workPoints?.length">
+                <div class="work-label">Work</div>
+                <ul class="work-points">
+                  <li *ngFor="let point of item.workPoints">{{ point }}</li>
+                </ul>
+              </div>
+              <p>{{ item.desc }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="col-title">🎓 Education</h3>
+        <div class="timeline">
+          <div class="timeline-item" *ngFor="let item of education">
+            <div class="dot"></div>
+            <div class="card content">
+              <span class="period">{{ item.period }}</span>
+              <h4>{{ item.title }}</h4>
+              <p class="org">{{ item.org }}</p>
+              <p>{{ item.desc }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="resume-cta">
+      <a href="assets/Amandeep_Singh.pdf" download class="btn btn-primary">⬇ Download Full Resume (PDF)</a>
+    </div>
+  </div>
+</section>
