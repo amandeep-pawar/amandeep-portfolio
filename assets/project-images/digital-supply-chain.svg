@@ -1,0 +1,22 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#0EA5E9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" rx="40" fill="url(#bg3)"/>
+  <g opacity="0.8">
+    <circle cx="270" cy="250" r="62" fill="#BAE6FD"/>
+    <circle cx="600" cy="250" r="62" fill="#7DD3FC"/>
+    <circle cx="930" cy="250" r="62" fill="#38BDF8"/>
+    <path d="M330 250H540" stroke="#E0F2FE" stroke-width="14" stroke-linecap="round"/>
+    <path d="M660 250H870" stroke="#E0F2FE" stroke-width="14" stroke-linecap="round"/>
+    <path d="M510 420H690" stroke="#E0F2FE" stroke-width="16" stroke-linecap="round"/>
+  </g>
+  <rect x="170" y="420" width="860" height="190" rx="24" fill="#082F49" fill-opacity="0.45"/>
+  <rect x="220" y="470" width="220" height="18" rx="9" fill="#BAE6FD"/>
+  <rect x="470" y="470" width="270" height="18" rx="9" fill="#7DD3FC"/>
+  <rect x="770" y="470" width="180" height="18" rx="9" fill="#38BDF8"/>
+  <text x="120" y="690" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="56" font-weight="700">Digital Supply Chain Platform</text>
+</svg>

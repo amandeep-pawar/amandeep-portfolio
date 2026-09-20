@@ -1,0 +1,16 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg4" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#022C22"/>
+      <stop offset="1" stop-color="#14B8A6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" rx="40" fill="url(#bg4)"/>
+  <circle cx="600" cy="310" r="165" fill="#CCFBF1" fill-opacity="0.2"/>
+  <circle cx="600" cy="310" r="116" fill="#99F6E4" fill-opacity="0.28"/>
+  <path d="M600 234V386" stroke="#F0FDFA" stroke-width="20" stroke-linecap="round"/>
+  <path d="M524 310H676" stroke="#F0FDFA" stroke-width="20" stroke-linecap="round"/>
+  <path d="M330 520H870" stroke="#99F6E4" stroke-width="18" stroke-linecap="round" opacity="0.8"/>
+  <path d="M390 560H810" stroke="#5EEAD4" stroke-width="18" stroke-linecap="round" opacity="0.8"/>
+  <text x="120" y="690" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="52" font-weight="700">Healthcare &amp; Life Sciences</text>
+</svg>
