@@ -1,11 +1,15 @@
 <div class="status-card">
   <div class="status-inline" *ngIf="!editing(); else editForm">
-    <div class="pulse-row">
+    <div class="pulse-row status-row">
       <span class="pulse-dot" [class.busy]="status().availability !== 'Available'"></span>
       <span class="availability">{{ status().availability }}</span>
-      <span class="divider">•</span>
+    </div>
+
+    <div class="pulse-row working-row">
       <span class="working-on"><strong>Working on:</strong> {{ status().workingOn }}</span>
-      <span class="divider">•</span>
+    </div>
+
+    <div class="pulse-row updated-row">
       <span class="updated">Updated {{ statusService.timeAgo(status().updatedAt) }}</span>
     </div>
 

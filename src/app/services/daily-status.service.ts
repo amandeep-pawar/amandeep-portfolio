@@ -1,15 +1,17 @@
 import { Injectable, signal } from '@angular/core';
+import { createClient } from '@supabase/supabase-js';
+import { environment } from '../../environments/environment';
 
 export interface DailyStatus {
+  id?: number;
   mood: string;
   availability: 'Available' | 'Busy' | 'In a meeting' | 'On leave';
   workingOn: string;
   updatedAt: string;
 }
 
-const STORAGE_KEY = 'portfolio-daily-status';
-
 const DEFAULT_STATUS: DailyStatus = {
+  id: 1,
   mood: 'Available',
   availability: 'Available',
   workingOn: 'Working on portfolio improvements',
@@ -18,21 +20,79 @@ const DEFAULT_STATUS: DailyStatus = {
 
 @Injectable({ providedIn: 'root' })
 export class DailyStatusService {
-  status = signal<DailyStatus>(this.load());
+  status = signal<DailyStatus>(DEFAULT_STATUS);
+  private readonly hasSupabaseConfig = !!environment?.supabaseUrl && !!environment?.supabaseAnonKey && environment.supabaseUrl.startsWith('http');
+  private readonly supabase = this.hasSupabaseConfig ? createClient(environment.supabaseUrl, environment.supabaseAnonKey) : null;
 
-  private load(): DailyStatus {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : DEFAULT_STATUS;
+  constructor() {
+    this.load();
+    if (this.supabase) {
+      this.subscribe();
+    }
   }
 
-  update(partial: Partial<DailyStatus>) {
+  private async load(): Promise<void> {
+    if (!this.supabase) {
+      console.warn('Supabase config missing; using local default status.');
+      return;
+    }
+
+    const { data, error } = await this.supabase
+      .from('daily_status')
+      .select('*')
+      .eq('id', 1)
+      .single();
+
+    if (error) {
+      console.warn('No shared status found yet, using default:', error.message);
+      return;
+    }
+
+    if (data) {
+      this.status.set(data as DailyStatus);
+    }
+  }
+
+  private subscribe(): void {
+    if (!this.supabase) {
+      return;
+    }
+
+    this.supabase
+      .channel('daily-status-updates')
+      .on(
+        'postgres_changes',
+        { event: 'UPDATE', schema: 'public', table: 'daily_status', filter: 'id=eq.1' },
+        (payload) => {
+          const next = payload.new as DailyStatus;
+          this.status.set(next);
+        }
+      )
+      .subscribe();
+  }
+
+  async update(partial: Partial<DailyStatus>): Promise<void> {
     const updated: DailyStatus = {
       ...this.status(),
       ...partial,
+      id: 1,
       updatedAt: new Date().toISOString()
     };
+
     this.status.set(updated);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+
+    if (!this.supabase) {
+      console.warn('Supabase config missing; skipping remote sync.');
+      return;
+    }
+
+    const { error } = await this.supabase
+      .from('daily_status')
+      .upsert(updated, { onConflict: 'id' });
+
+    if (error) {
+      console.error('Failed to sync status:', error.message);
+    }
   }
 
   timeAgo(iso: string): string {

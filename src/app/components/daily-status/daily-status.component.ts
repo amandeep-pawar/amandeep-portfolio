@@ -52,13 +52,13 @@ export class DailyStatusComponent {
     alert('Incorrect password. Only the owner can update the status.');
   }
 
-  save() {
+  async save() {
     if (!this.canEditStatus()) {
       this.editing.set(false);
       return;
     }
 
-    this.statusService.update(this.form);
+    await this.statusService.update(this.form);
     this.editing.set(false);
   }
 

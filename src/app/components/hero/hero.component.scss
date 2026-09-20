@@ -194,29 +194,41 @@ h1 {
 .mini-badge {
   position: absolute;
   z-index: 4;
-  padding: 8px 12px;
+  padding: 6px 10px;
   border-radius: 999px;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   background: rgba(10, 14, 24, 0.82);
   border: 1px solid rgba(255,255,255,0.08);
   color: #fff;
   box-shadow: 0 12px 22px rgba(15, 23, 42, 0.25);
+  animation: badgeDrift 14s ease-in-out infinite alternate;
+  white-space: nowrap;
+  max-width: 112px;
 }
 
-.badge-one { left: 12%; top: 12%; }
-.badge-two { right: 6%; top: 18%; }
-.badge-three { right: 8%; bottom: 26%; }
-.badge-four { left: 18%; bottom: 18%; }
-.badge-five { left: 6%; top: 46%; }
-.badge-six { right: 14%; top: 52%; }
-.badge-seven { left: 22%; top: 66%; }
+.badge-one { left: 18%; top: 8%; animation-delay: 0s; }
+.badge-two { right: 14%; top: 12%; animation-delay: 0.8s; }
+.badge-three { right: 8%; top: 38%; animation-delay: 1.2s; }
+.badge-four { right: 12%; bottom: 22%; animation-delay: 1.8s; }
+.badge-five { left: 6%; top: 42%; animation-delay: 2.4s; }
+.badge-six { left: 10%; bottom: 20%; animation-delay: 2.8s; }
+.badge-seven { left: 24%; bottom: 6%; animation-delay: 3.2s; }
+.badge-eight { right: 22%; bottom: 6%; animation-delay: 3.8s; }
+.badge-nine { left: 42%; top: 8%; animation-delay: 4.2s; }
+.badge-ten { right: 38%; top: 75%; animation-delay: 4.8s; }
 
 @keyframes floatHero {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
+}
+
+@keyframes badgeDrift {
+  0% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-4px) scale(1.02); }
+  100% { transform: translateY(2px) scale(1); }
 }
 
 @keyframes pulseRing {
@@ -260,6 +272,8 @@ h1 {
   .hero-visual {
     order: -1;
     height: 280px;
+    width: min(100%, 360px);
+    margin: 0 auto;
   }
 
   .avatar-core {
@@ -279,14 +293,29 @@ h1 {
   .orbit-two { width: 280px; height: 280px; }
 
   .mini-badge {
-    font-size: 0.6rem;
-    padding: 6px 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    max-width: 92px;
+    font-size: clamp(0.38rem, 1.5vw, 0.62rem);
+    line-height: 1.1;
+    padding: 5px 8px;
+    letter-spacing: 0.04em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transform: scale(0.95);
+    transform-origin: center;
   }
 
-  .badge-one { left: 10%; top: 10%; }
-  .badge-two { right: 8%; top: 16%; }
-  .badge-three { right: 12%; bottom: 18%; }
-  .badge-four { left: 12%; bottom: 18%; }
-  .badge-five { left: 5%; top: 48%; }
-  .badge-six { right: 10%; top: 52%; }
+  .badge-one { left: 14%; top: 10%; }
+  .badge-two { right: 10%; top: 10%; }
+  .badge-three { right: 8%; top: 38%; }
+  .badge-four { right: 14%; bottom: 20%; }
+  .badge-five { left: 8%; top: 42%; }
+  .badge-six { left: 10%; bottom: 20%; }
+  .badge-seven { left: 20%; bottom: 8%; }
+  .badge-eight { right: 18%; bottom: 8%; }
+  .badge-nine { left: 42%; top: 8%; }
+  .badge-ten { right: 36%; top: 72%; }
 }
