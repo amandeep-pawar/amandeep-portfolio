@@ -14,7 +14,7 @@ const DEFAULT_STATUS: DailyStatus = {
   id: 1,
   mood: 'Available',
   availability: 'Available',
-  workingOn: 'Working on portfolio improvements',
+  workingOn: 'Building Scalable Enterprise Systems & Distributed Systems',
   updatedAt: new Date().toISOString()
 };
 
